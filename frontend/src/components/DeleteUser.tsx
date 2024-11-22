@@ -7,7 +7,7 @@ interface DeleteUserProps {
 
 const DeleteUser: React.FC<DeleteUserProps> = ({ userId, onUserDeleted }) => {
   const handleDelete = async () => {
-    const confirmDelete = window.confirm(
+    const confirmDelete = window.confirm( // YALI: Great!
       "Are you sure you want to delete this user?"
     );
     if (confirmDelete) {

@@ -15,7 +15,7 @@ const CreateUser: React.FC<CreateUserProps> = ({ onUserCreated }) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    try {
+    try { // YALI: Before creating the user, validate the the values are proper (user has a name, password, etc...)
       await createUser(user);
       console.log("User created successfully!");
 
@@ -31,9 +31,9 @@ const CreateUser: React.FC<CreateUserProps> = ({ onUserCreated }) => {
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => { // YALI: Great generic function for various different changes!
     const { name, value } = e.target;
-    setUser((prevUser) => ({
+    setUser((prevUser) => ({ 
       ...prevUser,
       [name]: value,
     }));

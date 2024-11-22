@@ -19,9 +19,17 @@ const connectDatabase = async () => {
 app.use(cors());
 
 app.use(express.json());
-app.use("/users", userRoutes);
+app.use("/users", userRoutes); // YALI: Great!
 
 app.listen(PORT, async () => {
   await connectDatabase();
   console.log(`Server is running on port ${PORT}`);
 });
+
+/* YALI
+  As someone who just downloaded your repository, it's hard to understand what i need to do in order to
+  Get it working. please provide a README file that explains all the things i need to have (for example postgres db)
+  And all the things i need to do (for example cd server, npm i, etc) in order to run everything!
+*/
+
+// YALI: You don't know how to spell restaurant

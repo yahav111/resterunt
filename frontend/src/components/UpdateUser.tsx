@@ -6,6 +6,11 @@ interface UpdateUserProps {
   onUserUpdated: (updatedUser: User) => void;
 }
 
+/* YALI:
+  This whole component is 99% simliar to CreateUsers.tsx, which means you have duplicated code.
+  Find a way to make both of them in the same component.
+*/
+ 
 const UpdateUser: React.FC<UpdateUserProps> = ({ user, onUserUpdated }) => {
   const [updatedUser, setUpdatedUser] = useState<User>(user);
 
@@ -21,6 +26,7 @@ const UpdateUser: React.FC<UpdateUserProps> = ({ user, onUserUpdated }) => {
     e.preventDefault();
     try {
       // פה תוכל להוסיף קריאת API לעדכון המשתמש בשרת
+      // YALI: NO HEBREW!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
       onUserUpdated(updatedUser);
       console.log("User updated successfully!");
     } catch (error) {
@@ -33,7 +39,7 @@ const UpdateUser: React.FC<UpdateUserProps> = ({ user, onUserUpdated }) => {
       <input
         type="text"
         name="username"
-        value={updatedUser.username}
+        value={updatedUser.username} 
         onChange={handleChange}
       />
       <input

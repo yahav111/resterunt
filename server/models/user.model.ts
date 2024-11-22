@@ -12,7 +12,7 @@ class User extends Model {
 User.init(
   {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER, // YALI: Great use of sequelize!
       primaryKey: true,
       autoIncrement: true,
     },

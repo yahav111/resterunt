@@ -20,7 +20,7 @@ const App: React.FC = () => {
 
   const handleUserUpdated = (updatedUser: User) => {
     setUsers((prevUsers) =>
-      prevUsers.map((user) => (user.id === updatedUser.id ? updatedUser : user))
+      prevUsers.map((user) => (user.id === updatedUser.id ? updatedUser : user)) // YALI: Great!
     );
   };
 
@@ -29,8 +29,9 @@ const App: React.FC = () => {
       <h1>User Management App</h1>
       <CreateUser onUserCreated={handleUserCreated} />
       <UserList users={users} />
-      {users.map((user) => (
-        <div key={user.id?.toString()}>
+      {users.map((user) => ( 
+                                        // YALI: Shouldn't this be a part of UserList aswell?
+        <div key={user.id?.toString()}> 
           {" "}
           <DeleteUser
             userId={user.id?.toString() || ""}
@@ -43,3 +44,5 @@ const App: React.FC = () => {
   );
 };
 export default App;
+
+// YALI: Please learn css, your website looks like shit!!!!

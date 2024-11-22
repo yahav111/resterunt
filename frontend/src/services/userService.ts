@@ -2,8 +2,8 @@ import axios from "axios";
 import { User } from "../types/user";
 
 const api = axios.create({
-  baseURL: "http://localhost:3000/users",
-});
+  baseURL: "http://localhost:3000/users", // YALI: User enviornment variable instead
+}); // YALI: Why is base url with users? what if i have something other than users?
 
 export const getAllUsers = async (): Promise<User[]> => {
   const response = await api.get("/");
@@ -26,3 +26,5 @@ export const updateUser = async (
 export const deleteUser = async (id: string): Promise<void> => {
   await api.delete(`/${id}`);
 };
+
+// YALI: What about login and register with JWT? very important

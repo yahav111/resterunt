@@ -24,16 +24,16 @@ export const deleteUser = async (
   res: Response
 ): Promise<Response> => {
   try {
-    const { id } = req.params;
-
-    const userId = Number(id);
+    const { id } = req.params; 
+    
+    const userId = Number(id); // YALI: +id is a shortcut for Number(id)
     if (isNaN(userId)) {
       return res.status(400).json({ message: "Invalid user ID" });
     }
 
     const user = await User.findByPk(userId);
     if (!user) {
-      return res.status(404).json({ message: "User not found" });
+      return res.status(404).json({ message: "User not found" }); // YALI: Make a more detailed error message: `User with id ${userId} not found`
     }
 
     await user.destroy();
@@ -56,6 +56,15 @@ export const updateUser = async (req: Request, res: Response) => {
     user.username = username || user.username;
     user.email = email || user.email;
     user.password = password || user.password;
+    
+    /*
+      YALI: What if you had 20 fields to update? the easier way to do it is:
+      const userUpdate: Partial<User> = req.body
+      ...
+      const newUser = {...oldUser, ...newUser}
+      
+      read online about what that syntax means
+    */
 
     await user.save();
 
